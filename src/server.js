@@ -12,6 +12,7 @@ const port = process.env.PORT || 3000;
 const whitelist = [
   'http://localhost:5173', 
   'https://invenatrio-frontend.vercel.app',
+  'invenatrio-frontend-wbrb.vercel.app'
   'https://invenario-practica-1.onrender.com' 
 ];
 
