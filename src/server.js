@@ -11,14 +11,18 @@ const port = process.env.PORT || 3000;
 
 const whitelist = [
   'http://localhost:5173', 
-  'https://invenatrio-frontend.vercel.app/' 
+  'https://invenatrio-frontend.vercel.app' 
 ];
 
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin || whitelist.includes(origin)) {
+    // Permitir requests sin origen (como Postman o apps móviles)
+    if (!origin) return callback(null, true);
+
+    if (whitelist.includes(origin)) {
       callback(null, true);
     } else {
+      console.log("Bloqueado por CORS:", origin); // Esto te ayuda a ver en logs de Render quién intenta entrar
       callback(new Error('Bloqueado por CORS'));
     }
   }
