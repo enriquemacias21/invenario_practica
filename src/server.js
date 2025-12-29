@@ -1,10 +1,9 @@
-require('dotenv').config();
+// 1. CAMBIO: Usar sintaxis de import para dotenv
+import 'dotenv/config'; 
 
 import express from "express";
 import cors from "cors";
 import { pool } from "./db.js";
-
-
 
 const app = express();
 
@@ -13,14 +12,14 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-
-
+// =====================
+// LOGIN
+// =====================
 app.post("/login", async (req, res) => {
   try {
     const { cedula, clave } = req.body;
     
     // Buscamos usuario por cédula y clave
-    // NOTA: En producción, las claves deben estar encriptadas (hash).
     const query = "SELECT * FROM usuarios WHERE cedula = $1 AND clave = $2";
     const result = await pool.query(query, [cedula, clave]);
 
@@ -132,4 +131,5 @@ app.delete("/usuarios/:id", async (req, res) => {
 
 
 // SERVIDOR
-app.listen(3000, () => console.log("Servidor corriendo en http://localhost:3000"));
+// Corrección pequeña: usar la variable `port` definida arriba en lugar de 3000 fijo
+app.listen(port, () => console.log(`Servidor corriendo en http://localhost:${port}`));
