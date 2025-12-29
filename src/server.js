@@ -11,7 +11,7 @@ const port = process.env.PORT || 3000;
 
 const whitelist = [
   'http://localhost:5173', 
-  'https://mi-proyecto.vercel.app' 
+  'https://invenatrio-frontend.vercel.app/' 
 ];
 
 app.use(cors({
