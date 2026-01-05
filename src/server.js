@@ -13,7 +13,7 @@ const whitelist = [
   'http://localhost:5173', 
   'https://invenatrio-frontend.vercel.app',
   'https://invenatrio-frontend-wbrb.vercel.app',
-  'https://invenatrio-frontend-oqyy.vercel.app/',
+  'https://invenatrio-frontend-oqyy.vercel.app',
 ];
 
 app.use(cors({
