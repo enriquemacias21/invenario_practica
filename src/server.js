@@ -14,6 +14,7 @@ const whitelist = [
   'https://invenatrio-frontend.vercel.app',
   'https://invenatrio-frontend-wbrb.vercel.app',
   'https://invenatrio-frontend-oqyy.vercel.app',
+  'https://invenatrio-frontend-2.vercel.app',
 ];
 
 app.use(cors({
